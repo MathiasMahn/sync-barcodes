@@ -6,9 +6,9 @@
 */
 const int OUTPUT_PIN = 13;
 const int BARCODE_BITS = 32;
-const int BIT_DELAY_MS = 29;                    // per-bit duration (~928 ms for 32 bits)
+const int BIT_DELAY_MS = 30;                    // per-bit duration (~928 ms for 32 bits)
 const int MARKER_SEG_MS = 10;                   // each segment of the low/high/low marker
-const unsigned long CYCLE_PERIOD_MS = 30000UL;  // exact 30 s between barcode starts
+const unsigned long CYCLE_PERIOD_MS = 10000UL;  // exact 10 s between barcode starts
 
 unsigned long barcode;
 unsigned long nextCycle;
@@ -59,5 +59,5 @@ void loop() {
   emitMarker();  // trailing marker (identical to the leading one)
 
   digitalWrite(OUTPUT_PIN, LOW);
-  // the remaining ~29 s of the period is spent waiting at the top of loop()
+  // the remaining ~9 s of the period is spent waiting at the top of loop()
 }
